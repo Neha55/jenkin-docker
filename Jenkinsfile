@@ -4,7 +4,7 @@ node {
     stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
-        checkout https://github.com/Neha55/jenkin-docker.git
+        checkout scm
     }
 
     stage('Build image') {
