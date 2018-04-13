@@ -19,7 +19,7 @@ node {
 
         docker.image("jenkin-docker:tag1").inside {
             sh 'echo "Executing test"'
-            sh 'python /flask-app/test.py'
+            sh 'python test.py'
         }
     }
 }
