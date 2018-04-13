@@ -20,7 +20,7 @@ node {
 
         app.inside {
             sh 'echo "Executing test"'
-            sh  'python ./test.py'
+            sh  'python test.py'
         }
     }
 }
