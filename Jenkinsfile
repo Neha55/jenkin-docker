@@ -20,7 +20,7 @@ node {
 
         app.inside {
             sh 'echo "Executing test"'
-            sh  'python ./selenium/xy_python/run_tests.py'
+            sh  'python ./test.py'
         }
     }
 }
