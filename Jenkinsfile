@@ -20,9 +20,7 @@ node {
 
         app.inside {
             sh 'echo "Executing test"'
-            dir = pwd()
-            sh 'echo $dir'
-            sh 'python test.py'
+            sh 'python /flask-app/test.py'
         }
     }
 }
