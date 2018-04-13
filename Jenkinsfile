@@ -24,9 +24,11 @@ pipeline {
             /* Ideally, we would run a test framework against our image.
              * For this example, we're using a Volkswagen-type approach ;-) */
              steps {
-            app.inside {
-                sh 'echo "Executing test"'
-                sh 'python test.py'
+             script{
+                app.inside {
+                    sh 'echo "Executing test"'
+                    sh 'python test.py'
+                    }
                 }
             }
         }
