@@ -1,4 +1,4 @@
-dockerNode(image: 'jenkin-docker:latest') 
+node 
 {
     def app
     stage('Clone repository') {
@@ -13,6 +13,7 @@ dockerNode(image: 'jenkin-docker:latest')
         app = docker.build("jenkin-docker")
     }
     stage('Test image') {
+        agent { docker 'jenkin-docker:latest' }
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
 
