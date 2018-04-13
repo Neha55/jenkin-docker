@@ -1,4 +1,4 @@
-dockerNode(credentialsId: '', dockerHost: 'hpcb8.pok.ibm.com', image: 'jenkin-docker:latest', remoteFs: '') 
+dockerNode(image: 'jenkin-docker:latest') 
 {
     def app
     stage('Clone repository') {
