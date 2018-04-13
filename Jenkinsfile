@@ -10,7 +10,7 @@ node {
         /* This builds the actual image; synonymous to
          * docker build on the command line */
 
-        docker.build("jenkin-docker:tag1").
+        docker.build("jenkin-docker:tag1")
     }
 
     stage('Test image') {
