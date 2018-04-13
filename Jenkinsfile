@@ -20,7 +20,9 @@ node {
 
         app.inside {
             sh 'echo "Executing test"'
-            sh  'python test.py'
+            dir = pwd()
+            sh 'echo $dir'
+            sh 'python test.py'
         }
     }
 }
