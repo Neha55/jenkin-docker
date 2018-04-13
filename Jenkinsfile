@@ -1,32 +1,15 @@
 pipeline {
     agent none
     stages {
-
-        stage('Clone repository') {
-            /* Let's make sure we have the repository cloned to our workspace */
+        stage('build') {
              steps {
-            checkout scm
+            echo 'This is a minimal pipeline.'
             }
         }
-        stage('Build image') {
-            /* This builds the actual image; synonymous to
-             * docker build on the command line */
-             steps {
-             script {
-                app = docker.build("jenkin-docker")
-                }
-            }
-        }
-        stage('Test image') {
+        stage('build') {
             agent {
                     docker { image 'jenkin-docker:latest' }
                   }
-            /* Ideally, we would run a test framework against our image.
-             * For this example, we're using a Volkswagen-type approach ;-) */
-            steps {
-                sh 'echo "Executing test"'
-                sh 'python test.py'
-            }
         }
     }
 }
