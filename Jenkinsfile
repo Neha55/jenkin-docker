@@ -13,7 +13,9 @@ node
         app = docker.build("jenkin-docker")
     }
     stage('Test image') {
-        agent { docker 'jenkin-docker:latest' }
+        agent {
+                docker { image 'jenkin-docker:latest' }
+              }
         /* Ideally, we would run a test framework against our image.
          * For this example, we're using a Volkswagen-type approach ;-) */
 
