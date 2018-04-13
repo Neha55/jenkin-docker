@@ -12,7 +12,9 @@ pipeline {
             /* This builds the actual image; synonymous to
              * docker build on the command line */
              steps {
-            app = docker.build("jenkin-docker")
+             script {
+                app = docker.build("jenkin-docker")
+                }
             }
         }
         stage('Test image') {
