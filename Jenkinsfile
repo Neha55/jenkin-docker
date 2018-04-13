@@ -20,6 +20,7 @@ node {
         docker.image("jenkin-docker:tag1").withRun('-d'){c ->
             docker.image("jenkin-docker:tag1").inside {
                 sh 'echo "Executing test"'
+                sh 'echo $PWD'
                 sh 'python test.py'
             }
         }
