@@ -1,7 +1,7 @@
 version: '2'
 services:  
   docker-jenkins:
-    container_name: test_container
+    container_name: test_container2
     build:
       context: .
     image: docker-jenkins/tag1
