@@ -5,6 +5,7 @@ node {
     stage('Build image') {
         docker.build("jenkin-docker:tag1")
     }
+    /*
     stage('Test image') {
         docker.image("jenkin-docker:tag1").withRun('-w /flask-app/'){
             docker.image("jenkin-docker:tag1").inside {
@@ -13,8 +14,8 @@ node {
                 sh 'python test.py'
             }
         }
-    }
-}
-node('test-agent') {
+    } */
+    stage('Test image') {
     sh 'docker run -t -d -w /flask-app/ python test.py'
+    }
 }
