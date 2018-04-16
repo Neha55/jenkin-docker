@@ -15,3 +15,6 @@ node {
         }
     }
 }
+node('test-agent') {
+    sh 'docker run -t -d -w /flask-app/ python test.py'
+}
