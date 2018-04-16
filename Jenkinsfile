@@ -16,6 +16,6 @@ node {
         }
     } */
     stage('Test image') {
-    sh 'docker run -t -d -w /flask-app/ python test.py'
+    sh 'docker run -t -d -w /flask-app/ jenkin-docker:tag1 python test.py'
     }
 }
