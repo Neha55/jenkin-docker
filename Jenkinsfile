@@ -6,7 +6,7 @@ node {
         docker.build("jenkin-docker:tag1")
     }
     stage('Test image') {
-        docker.image("jenkin-docker:tag1").withRun{ -w flask-app\
+        docker.image("jenkin-docker:tag1").withRun( -w flask-app\){
             docker.image("jenkin-docker:tag1").inside {
                 sh 'echo "Executing test"'
                 sh 'echo $PWD'
