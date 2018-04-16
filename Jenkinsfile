@@ -1,6 +1,5 @@
 node {
     stage('Clone repository') {
-        properties([pipelineTriggers([[$class: 'GitHubPushTrigger']])])
         checkout scm
     }
     stage('Build image') {
