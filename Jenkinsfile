@@ -12,7 +12,7 @@ node {
     }*/
     
     stage('Test image compose') {
-    sh 'docker-compose -d up'
+    sh 'docker-compose docker-compose –f docker-compose.yaml -d run'
     sh 'docker logs --follow test-container'
     }
 }
