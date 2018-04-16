@@ -7,16 +7,12 @@ node {
     }
     /*
     stage('Test image') {
-        docker.image("jenkin-docker:tag1").withRun('-w /flask-app/'){
-            docker.image("jenkin-docker:tag1").inside {
-                sh 'echo "Executing test"'
-                sh 'echo $PWD'
-                sh 'python test.py'
-            }
-        }
-    } */
-    stage('Test image') {
     sh 'docker run -t -d --name test-container -u 492:482 -v /var/lib/jenkins/workspace/jenkins-docker-integration:/var/lib/jenkins/workspace/jenkins-docker-integration:rw,z -v /var/lib/jenkins/workspace/jenkins-docker-integration@tmp:/var/lib/jenkins/workspace/jenkins-docker-integration@tmp:rw,z jenkin-docker:tag1 python test.py'
+    sh 'docker logs --follow test-container'
+    }*/
+    
+    stage('Test image compose') {
+    sh 'docker-compose -d up'
     sh 'docker logs --follow test-container'
     }
 }
