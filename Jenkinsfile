@@ -14,8 +14,7 @@ node {
     }*/
     
     stage('Test image compose') {
-    sh '/usr/local/bin/docker-compose run -d -w /flask-app/ docker-jenkins python test.py'
+    sh '/usr/local/bin/docker-compose up'
     sh 'docker logs --follow test-container'
-    sh 'docker rm test-container'
     }
 }
