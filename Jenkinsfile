@@ -15,6 +15,8 @@ node {
     
     stage('Test image compose') {
     sh '/usr/local/bin/docker-compose up'
+    sh 'docker exec -it test_container python test.py'
     sh 'docker logs --follow test-container'
+    sh 'docker rm test-container'
     }
 }
