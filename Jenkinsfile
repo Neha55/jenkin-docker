@@ -16,9 +16,9 @@ node {
     
     stage('Test Image') {
     sh 'echo $PWD'
-    sh '/usr/local/bin/docker-compose up -d '
-    sh 'docker exec -it -w /flask-app/ test_container python test.py'
-    sh 'docker logs --follow test-container'
+    sh '/usr/local/bin/docker-compose up -d'
+    sh 'docker exec -it test_container python test.py'
+    /*sh 'docker logs --follow test-container'*/
     sh 'docker rm test-container'
     }
 }
