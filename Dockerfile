@@ -8,4 +8,4 @@ COPY flask-app/ /flask-app/
 RUN pip install -r requirements.txt
 EXPOSE 5000
 WORKDIR /flask-app/
-#CMD ["python", "app.py"]
+CMD ["python", "app.py"]
