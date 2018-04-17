@@ -4,6 +4,6 @@ services:
     container_name: test_container
     build:
       context: .
-    image: docker-jenkins/tag1
+    image: docker-jenkins:tag1
     volumes:
       - /var/lib/jenkins/workspace/jenkins-docker-integration:/var/lib/jenkins/workspace/jenkins-docker-integration

@@ -2,8 +2,9 @@ node {
     stage('Clone repository') {
         checkout scm
     }
-    stage('Build image') {
-        docker.build("jenkin-docker:tag1")
+    stage('Build Image') {
+        /*docker.build("jenkin-docker:tag1")*/
+        sh '/usr/local/bin/docker-compose build'
     }
     
     /*
@@ -13,7 +14,8 @@ node {
         sh 'docker rm test-container'
     }*/
     
-    stage('Test image compose') {
+    stage('Test Image') {
+    sh 'echo $PWD'
     sh '/usr/local/bin/docker-compose up'
     sh 'docker exec -it test_container python test.py'
     sh 'docker logs --follow test-container'
