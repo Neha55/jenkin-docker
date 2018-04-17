@@ -18,7 +18,6 @@ node {
     sh 'echo $PWD'
     sh '/usr/local/bin/docker-compose up -d'
     sh 'docker exec test_container python test.py'
-    /*sh 'docker logs --follow test-container'*/
-    sh 'docker rm test-container'
+    sh 'docker rm -f test_container'
     }
 }
