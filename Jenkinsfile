@@ -1,5 +1,5 @@
 node {
-    stage('Clone repository') {
+    stage('Clone Repository') {
         checkout scm
     }
     stage('Build Image') {
@@ -14,14 +14,19 @@ node {
         sh 'docker rm test-container'
     }*/
     
+    
     stage('Test Image') {
-    sh 'echo $PWD'
-    sh '/usr/local/bin/docker-compose up -d'
-    sh 'docker exec test_container python test.py'
-    sh 'docker rm -f test_container'
+        try{
+            sh 'echo $PWD'
+            sh '/usr/local/bin/docker-compose up -d'
+            sh 'docker exec test_container python test.py'
+        }
+        finally{
+            sh 'docker rm -f test_container'
+        }
     }
     
     stage('Notify') {
-        emailext attachLog: true, body: 'failed', recipientProviders: [developers()], subject: 'failed', to: 'nehabidkar7038@gmail.com'
+        emailext attachLog: true, body: 'Jenkins Build Logs', recipientProviders: [developers()], subject: 'Jenkins Build Logs', to: 'nebidkar@in.ibm.com'
     }
 }
