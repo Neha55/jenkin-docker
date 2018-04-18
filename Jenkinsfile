@@ -20,4 +20,8 @@ node {
     sh 'docker exec test_container python test.py'
     sh 'docker rm -f test_container'
     }
+    
+    stage('Notify') {
+        emailext body: 'failed', recipientProviders: [developers()], subject: 'failed', to: 'neha_bidkar@persistent.co.in'
+    }
 }
