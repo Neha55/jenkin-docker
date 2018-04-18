@@ -22,6 +22,6 @@ node {
     }
     
     stage('Notify') {
-        emailext body: 'failed', recipientProviders: [developers()], subject: 'failed', to: 'nehabidkar7038@gmail.com'
+        emailext attachLog: true, body: 'failed', recipientProviders: [developers()], subject: 'failed', to: 'nehabidkar7038@gmail.com'
     }
 }
