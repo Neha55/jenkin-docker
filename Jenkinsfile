@@ -4,6 +4,7 @@ node {
     }
     stage('Build Image') {
         /*docker.build("jenkin-docker:tag1")*/
+        sh 'export DOCKER_HOST=127.0.0.1:2375'
         sh '/usr/local/bin/docker-compose --verbose build'
     }
     
