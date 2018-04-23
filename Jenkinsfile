@@ -4,7 +4,7 @@ node {
     }
     stage('Build Image') {
         /*docker.build("jenkin-docker:tag1")*/
-        sh '/usr/local/bin/docker-compose build'
+        sh 'docker-compose build'
     }
     
     stage('Test Image') {
