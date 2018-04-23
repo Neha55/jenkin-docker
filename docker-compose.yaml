@@ -6,4 +6,4 @@ services:
       context: .
     image: docker-jenkins:tag1
     volumes:
-      - /var/lib/jenkins/workspace/jenkins-docker-integration:/var/lib/jenkins/workspace/jenkins-docker-integration
+      - /var/lib/jenkins/workspace/test:/var/lib/jenkins/workspace/test
