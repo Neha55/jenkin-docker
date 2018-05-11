@@ -23,6 +23,6 @@ node {
                 body: 'Jenkins Build Logs \n BUILD_NUMBER : $BUILD_NUMBER \n BUILD_ID: $BUILD_ID \n BUILD_URL : $BUILD_URL', 
                 recipientProviders: [developers()], 
                 subject: 'Jenkins Build $BUILD_TAG Logs', 
-                to: 'nebidkar@in.ibm.com, akshguru@in.ibm.com'
+                to: 'nebidkar@in.ibm.com'
     }
 }
