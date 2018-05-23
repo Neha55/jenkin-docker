@@ -13,6 +13,13 @@ node {
             sh '/usr/local/bin/docker-compose up -d'
             sh 'docker exec test_container python test.py'
         }
+        catch (Exception e) {
+            emailext attachLog: true,
+                     subject: 'Jenkins Build $BUILD_TAG - FAILURE', 
+                     to: 'nebidkar@in.ibm.com',
+                     body: 'Build failed. Please check the logs.'
+            throw e;
+        }
         finally{
             sh 'docker rm -f test_container'
         }
