@@ -11,11 +11,11 @@ node {
         try{
             sh 'echo $PWD'
             sh '/usr/local/bin/docker-compose up -d'
-            sh 'docker exec -i test_container bash -c "python test.py"' > fail_logs.log
+            sh 'docker exec -i test_container bash -c "python test.py"'
         }
         catch (Exception e) {
             emailext attachLog: true,
-                     attachmentsPattern: 'fail_logs.log',
+                     //attachmentsPattern: 'fail_logs.log',
                      subject: 'Jenkins Build $BUILD_TAG - FAILURE', 
                      to: 'nebidkar@in.ibm.com',
                      body: 'Build failed. Please check the logs.'
